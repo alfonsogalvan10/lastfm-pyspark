@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PySpark Debug",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "python": "/opt/spark/work-dir/.venv/bin/python3",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false
+        },
+        {
+            "name": "Debug Pytest",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "tests"  // Runs all tests in the "tests" folder
+            ],
+            "console": "integratedTerminal",
+            "python": "/opt/spark/work-dir/.venv/bin/python3",
+            "justMyCode": false
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Spark Py",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  }
+}

@@ -1,0 +1,17 @@
+[project]
+name = "FMDatasetSparkChallenge"
+version = "0.1.0"
+description = "Spark analysis of Last.fm music sessions"
+requires-python = ">=3.9"
+dependencies = [
+    "pyspark==3.5.1",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["setuptools", "wheel", "uv"]
+build-backend = "setuptools.build_meta"
