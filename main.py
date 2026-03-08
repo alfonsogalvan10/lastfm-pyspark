@@ -18,8 +18,8 @@ def process_top_10_songs(df_sessions):
     """Process and save the top 10 songs."""
     logging.info("Processing top 10 songs...")
     top_10 = get_top_10_songs(df_sessions)
-    top_10.coalesce(1).write.mode("overwrite").option("header", "true").csv("data/output/top_10_songs")
-    logging.info("Top 10 songs saved to 'data/output/top_10_songs'.")
+    top_10.coalesce(1).write.mode("overwrite").option("header", "true").option("delimiter", "\t").csv("data/output/top_10_songs")
+    logging.info("Top 10 songs saved to 'data/output/top_10_songs' as TSV.")
 
 def forecast_top_user_sessions(df_sessions):
     """Forecast session count for the top user."""
@@ -46,9 +46,9 @@ def forecast_top_user_sessions(df_sessions):
     plot_session_count_forecast(model, forecast)
     logging.info("Plot saved as 'session_count_forecast.png'")
 
-    logging.info("Saving forecasted data to CSV...")
-    future_forecast[["ds", "yhat", "yhat_lower", "yhat_upper"]].to_csv("data/output/session_count_forecast.csv", index=False)
-    logging.info("Forecast data saved to 'data/output/session_count_forecast.csv'.")
+    logging.info("Saving forecasted data to TSV...")
+    future_forecast[["ds", "yhat", "yhat_lower", "yhat_upper"]].to_csv("data/output/session_count_forecast.csv", sep="\t", index=False)
+    logging.info("Forecast data saved to 'data/output/session_count_forecast.csv' as TSV.")
 
 def main():
     """Main entry point for the program."""
