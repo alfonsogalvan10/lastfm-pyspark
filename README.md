@@ -52,7 +52,7 @@ Processed data will be saved in the `data/output/` folder:
 ## Assumptions
 - **Dataset Format**: The input dataset is assumed to be in the format provided by Last.fm, with tab-separated values.
 - **Session Definition**: A session consists of one or more songs played by a user, where each song starts within 20 minutes of the previous song.
-- **Forecasting**: The forecasting model assumes that the session count follows a predictable time series pattern.
+- **Forecasting**: The forecasting model assumes that the session count follows a predictable time series pattern. Additionally, the single series allows to convert aggregation to pandas dataframe to fit model in-memory. Otherwise, Pandas UDF would be required to handle full Spark cluster parallelism.
 
 ## Things to Improve
 If more time were available, the following improvements could be made:
